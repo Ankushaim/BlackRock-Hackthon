@@ -27,7 +27,7 @@ def apply_temporal_rules(
     if not t_date:
         return None, "Invalid date format"
 
-    # Deep copy the transaction to modify remanent safely
+    # Deep copy the transaction
     updated_transaction = transaction.model_copy()
 
     # Process Q periods
@@ -53,10 +53,6 @@ def apply_temporal_rules(
             matching_p_extra += p.extra
 
     updated_transaction.remanent += matching_p_extra
-
-    # The PRD does not define exactly what makes a transaction "invalid" under filter
-    # except standard validation or maybe if it's completely disconnected.
-    # We will just return the valid and potentially modified transaction.
     return updated_transaction, None
 
 

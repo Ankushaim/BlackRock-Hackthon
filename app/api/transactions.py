@@ -21,7 +21,6 @@ async def parse_transactions(expenses: list[Expense]):
     for exp in expenses:
         amount = exp.amount
         # get remnant by rounding to next 100
-        # e.g., 250 -> 300, diff 50
         if amount == 0:
             ceiling, remanent = 0.0, 0.0
         else:
