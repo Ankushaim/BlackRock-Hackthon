@@ -1,0 +1,10 @@
+services:
+  api:
+    build: .
+    image: blk-hacking-ind-ankush-agrawal
+    ports:
+      - "5477:5477"
+    volumes:
+      - ./app:/app/app
+    environment:
+      - PYTHONUNBUFFERED=1
